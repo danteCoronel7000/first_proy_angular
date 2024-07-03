@@ -1,0 +1,77 @@
+<div class="container-rc">
+  <form (ngSubmit)="onSubmit()" [formGroup]="contact_form">
+    <h2>Adicionar Nuevo Personal</h2>
+    <!-- clave -->
+    <input type="text" id="cedula" placeholder="Cedula" formControlName="cedula"/> <br />
+    <div *ngIf="contact_form.get('cedula')?.invalid && (contact_form.get('cedula')?.dirty || contact_form.get('cedula')?.touched)">
+      <div class="alert_red" *ngIf="contact_form.get('cedula')?.errors?.['required']"> this field is required</div>
+    </div>
+    <!-- nombres -->
+    <input type="text" id="name" placeholder="Nombres" formControlName="name"/> <br />
+    <div class="alert_red" *ngIf="contact_form.get('name')?.invalid && (contact_form.get('name')?.dirty || contact_form.get('name')?.touched)">
+      <div *ngIf="contact_form.get('name')?.errors?.['required']"> this field is required</div>
+      <div *ngIf="contact_form.get('name')?.errors?.['pattern']"> this field does not allow numbers</div>
+    </div>  
+    <!-- apellido paterno -->
+    <input type="text" id="first_ap" placeholder="Apell. Paterno" formControlName="first_ap"/> <br />
+    <div class="alert_red" *ngIf="contact_form.get('first_ap')?.invalid && (contact_form.get('first_ap')?.dirty || contact_form.get('first_ap')?.touched)">
+      <div *ngIf="contact_form.get('first_ap')?.errors?.['required']"> this field is required</div>
+      <div *ngIf="contact_form.get('first_ap')?.errors?.['pattern']"> this field does not allow numbers</div>
+    </div>
+    <!-- apellido materno -->
+    <input type="text" id="last_ap" placeholder="Apell. Materno" formControlName="last_ap"/> <br />
+    <div class="alert_red" *ngIf="contact_form.get('last_ap')?.invalid && (contact_form.get('last_ap')?.dirty || contact_form.get('last_ap')?.touched)">
+      <div *ngIf="contact_form.get('last_ap')?.errors?.['pattern']"> this field does not allow numbers</div>
+    </div>
+    <!-- Estado Civil -->
+    <div id="container-rc-hijo">
+      <label for="">Est. Civil</label>
+      <input type="radio" id="casado" name="estadoCivil" formControlName="estadoCivil" value="Casado" />
+      <label for="casado">Casado</label>
+      <input type="radio" id="soltero" name="estadoCivil" formControlName="estadoCivil" value="Soltero" />
+      <label for="soltero">Soltero(a)</label>
+      <input type="radio" id="divorciado" name="estadoCivil" formControlName="estadoCivil" value="Divorciado" />
+      <label for="divorciado">Divorciado</label>
+    </div>
+    
+    <div class="alert_red" *ngIf="contact_form.get('estadoCivil')?.invalid && (contact_form.get('estadoCivil')?.dirty || contact_form.get('estadoCivil')?.touched)">
+      <div *ngIf="contact_form.get('estadoCivil')?.errors?.['required']">Este campo es requerido</div>
+    </div>
+    
+    <br />
+    <!-- departamentos -->
+    <select  id="department" formControlName="department">
+      <option value="" disabled selected>Selecciona una departamento</option>
+      <option value="Tarija">Tarija</option>
+      <option value="La Paz">La Paz</option>
+      <option value="Cochabamba">Cochabamba</option>
+      <option value="Santa Cruz">Santa Cruz</option>
+      <option value="Oruro">Oruro</option>
+      <option value="Potosi">Potosi</option>
+      <option value="Chuquisaca">Chuquisaca</option>
+      <option value="Beni">Beni</option>
+      <option value="Pando">Pando</option>
+    </select>
+    <div class="alert_red" *ngIf="contact_form.get('department')?.invalid && (contact_form.get('department')?.dirty || contact_form.get('department')?.touched)">
+      <div *ngIf="contact_form.get('department')?.errors?.['required']"> this field is required</div>
+    </div>
+    <br />
+    <!-- Usuario -->
+    <input type="text" id="user" placeholder="Usuario" formControlName="user"/><br />
+    <div class="alert_red" *ngIf="contact_form.get('user')?.invalid && (contact_form.get('user')?.dirty || contact_form.get('user')?.touched)">
+      <div *ngIf="contact_form.get('user')?.errors?.['required']"> this field is required</div>
+      <div *ngIf="contact_form.get('user')?.errors?.['maxlength']"> I exceed the maximum number of characters</div>
+    </div>
+    <!-- Clave -->
+    <input type="password" id="password" placeholder="Clave" formControlName="password"/> <br />
+    <div class="alert_red" *ngIf="contact_form.get('password')?.invalid && (contact_form.get('password')?.dirty || contact_form.get('password')?.touched)">
+      <div *ngIf="contact_form.get('password')?.errors?.['required']"> this field is required</div>
+    </div>
+    <!-- repetir clave -->
+    <input type="password" id="repeat_password" placeholder="Repetir Clave" formControlName="repeat_password"/> <br />
+    <div class="alert_red" *ngIf="contact_form.get('repeat_password')?.invalid && (contact_form.get('repeat_password')?.dirty || contact_form.get('repeat_password')?.touched)">
+      <div *ngIf="contact_form.get('repeat_password')?.errors?.['required']"> this field is required</div>
+    </div>
+    <button type="submit" [disabled]="contact_form.invalid">Guardar</button>
+  </form>
+</div>

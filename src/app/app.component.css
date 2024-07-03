@@ -1,0 +1,69 @@
+nav {
+	margin: auto;
+	background-color: #fff;
+	font-size: 20px;
+	position: fixed;
+	width: 100%;
+	top: 0; /* Asegura que el nav esté siempre en la parte superior */
+	z-index: 1000; /* Asegura que el nav esté por encima de otros elementos */
+  }
+  
+  #logo:hover {
+	background: none;
+  }
+  
+  .menu-horizontal {
+	background: #fff;
+	list-style: none;
+	display: flex;
+	justify-content: flex-start;
+  }
+  
+  .menu-horizontal a:hover {
+	cursor: pointer;
+  }
+  
+  .menu-horizontal > li > a {
+	display: block;
+	padding: 15px 20px;
+	color: #000;
+	text-decoration: none;
+  }
+  
+  .menu-horizontal > li:hover {
+	background-color: #999;
+	border-radius: 8px;
+  }
+  
+  .menu-vertical {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	list-style: none;
+	width: 200px;
+	background-color: #fff;
+	transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+  
+  .menu-vertical > li > a:hover {
+	color: #fff;
+  }
+  
+  .menu-horizontal li:hover .menu-vertical {
+	opacity: 1;
+	visibility: visible;
+	margin-top: 6px;
+  }
+  
+  .menu-vertical li:hover {
+	background-color: #444;
+	border-radius: 8px;
+  }
+  
+  .menu-vertical li a {
+	display: block;
+	color: #000;
+	text-decoration: none;
+	padding: 15px;
+  }
+  

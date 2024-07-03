@@ -1,0 +1,39 @@
+<div class="container-rc">
+  <form (ngSubmit)="onSubmit()" [formGroup]="contact_form">
+    <h2>Recuperar Clave</h2>
+
+    <input
+      type="text"
+      placeholder="Usuario"
+      id="user" placeholder="Usuario" formControlName="user"
+    />
+    <div class="alert_red" *ngIf="contact_form.get('user')?.invalid && (contact_form.get('user')?.dirty || contact_form.get('user')?.touched)">
+      <div *ngIf="contact_form.get('user')?.errors?.['required']"> this field is required</div>
+      <div *ngIf="contact_form.get('user')?.errors?.['maxlength']"> I exceed the maximum number of characters</div>
+    </div>
+    <br />
+
+    <input
+      type="password"
+      placeholder="Clave Nueva"
+      id="password" placeholder="Clave" formControlName="password"
+    />  
+    <div class="alert_red" *ngIf="contact_form.get('password')?.invalid && (contact_form.get('password')?.dirty || contact_form.get('password')?.touched)">
+      <div *ngIf="contact_form.get('password')?.errors?.['required']"> this field is required</div>
+    </div>
+    <br />
+
+    <input
+      type="password"
+      placeholder="Repetir Clave"
+      id="repeat_password" placeholder="Repetir Clave" formControlName="repeat_password"
+    />
+    <div class="alert_red" *ngIf="contact_form.get('repeat_password')?.invalid && (contact_form.get('repeat_password')?.dirty || contact_form.get('repeat_password')?.touched)">
+      <div *ngIf="contact_form.get('repeat_password')?.errors?.['required']"> this field is required</div>
+    </div>
+    <br />
+    <button type="submit" [disabled]="!contact_form.valid">Guardar</button>
+  </form>
+</div>
+
+<br />

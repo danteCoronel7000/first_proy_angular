@@ -1,0 +1,16 @@
+div{
+    padding-top: 10vh;
+}
+
+h4{
+    margin-left: 10vw;
+}
+
+p{
+    margin: auto;
+    width: 80vw;
+    background: #E4EBE8;
+    border: 2px solid #C4C7C6;
+    padding: 8px;
+    border-radius: 6px;
+}
